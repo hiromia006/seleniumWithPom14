@@ -63,7 +63,7 @@ public class BaseTest {
 
 
         driver.manage().window().maximize();
-        driver.get(prop.getProperty("url"));
+        driver.get(prop.getProperty("baseUrl"));
         pg = new BasePage(driver);
 
     }
