@@ -72,4 +72,12 @@ public class BaseTest {
     public void browserTeardown() {
         driver.quit();
     }
+
+    public String getUsername() {
+        return prop.getProperty("username");
+    }
+
+    public String getPassword() {
+        return prop.getProperty("password");
+    }
 }
