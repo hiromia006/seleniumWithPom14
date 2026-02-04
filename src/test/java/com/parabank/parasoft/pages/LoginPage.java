@@ -27,4 +27,10 @@ public class LoginPage extends BasePage {
        clickElement(By.cssSelector("a[href='register.htm']"));
         return navigateToPage(RegisterPage.class);
     }
+
+    public OverviewPage doLogin(String username, String password) {
+        fillUsername(username);
+        fillPassword(password);
+        return clickLoginButton();
+    }
 }

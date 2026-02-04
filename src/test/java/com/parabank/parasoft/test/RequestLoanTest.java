@@ -11,9 +11,7 @@ public class RequestLoanTest extends BaseTest {
     public void requestLoanShouldSucceed() {
         ApprovedLoanPage page4 = pg
                 .navigateToPage(LoginPage.class)
-                .fillUsername(getUsername())
-                .fillPassword(getPassword())
-                .clickLoginButton()
+                .doLogin(getUsername(), getPassword())
                 .clickRequestLoanLink()
                 .fillLoanAmount("5000")
                 .fillDownPayment("1000")

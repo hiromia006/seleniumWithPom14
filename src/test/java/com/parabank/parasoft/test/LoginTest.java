@@ -29,9 +29,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void loginShouldSucceedWithValidCredentialV2() {
         OverviewPage oPage = pg.navigateToPage(LoginPage.class)
-                .fillUsername(getUsername())
-                .fillPassword(getPassword())
-                .clickLoginButton();
+                .doLogin(getUsername(), getPassword());
         Assert.assertTrue(oPage.hasLogOutLink());
     }
 }
