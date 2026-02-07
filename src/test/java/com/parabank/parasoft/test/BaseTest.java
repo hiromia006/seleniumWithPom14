@@ -90,7 +90,7 @@ public class BaseTest {
         return prop.getProperty("password");
     }
 
-    public  void takeScreenshot(String fileName) {
+    public void takeScreenshot(String fileName) {
         try {
             File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             String currentDir = System.getProperty("user.dir") + "/build/screenshots/";
@@ -100,4 +100,7 @@ public class BaseTest {
         }
     }
 
+    public WebDriver getWebDriver() {
+        return driver;
+    }
 }
