@@ -2,6 +2,9 @@ package com.parabank.parasoft.test;
 
 import com.parabank.parasoft.pages.BasePage;
 import com.parabank.parasoft.pages.Page;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -9,10 +12,13 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -69,7 +75,10 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public void browserTeardown() {
+    public void browserTeardown(ITestResult result) {
+        if (ITestResult.FAILURE == result.getStatus()) {
+            takeScreenshot(result.getName());
+        }
         driver.quit();
     }
 
@@ -80,4 +89,15 @@ public class BaseTest {
     public String getPassword() {
         return prop.getProperty("password");
     }
+
+    public  void takeScreenshot(String fileName) {
+        try {
+            File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            String currentDir = System.getProperty("user.dir") + "/build/screenshots/";
+            FileUtils.copyFile(scrFile, new File(currentDir + fileName + System.currentTimeMillis() + ".png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
