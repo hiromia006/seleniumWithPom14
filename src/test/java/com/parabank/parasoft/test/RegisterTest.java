@@ -13,6 +13,7 @@ public class RegisterTest extends BaseTest {
 
     @Test
     public void registerShouldSucceed() {
+        String username = LoremIpsum.getInstance().getName().replaceAll(" ", "");
         LoginPage page = pg.navigateToPage(LoginPage.class);
         RegisterPage registerPage = page.clickRegisterLink();
         registerPage = registerPage
@@ -24,7 +25,7 @@ public class RegisterTest extends BaseTest {
                 .fillZipCode("12345")
                 .fillPhone("123-456-7890")
                 .fillSsn("123-45-6789")
-                .fillUsername("johndoe")
+                .fillUsername(username)
                 .fillPassword("password123")
                 .fillConfirmPassword("password123");
 
