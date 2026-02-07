@@ -6,9 +6,8 @@
     </listeners>
 
     <test verbose="2" preserve-order="true" name="Adity">
-        <classes>
-<!--            <class name="com.parabank.parasoft.test.LoginTest"></class>-->
-            <class name="com.parabank.parasoft.test.RegisterTest"></class>
-        </classes>
+        <packages>
+            <package name="com.parabank.parasoft.test.*"></package>
+        </packages>
     </test>
 </suite>

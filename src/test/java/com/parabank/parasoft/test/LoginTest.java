@@ -24,6 +24,7 @@ public class LoginTest extends BaseTest {
         OverviewPage oPage = lPage
                 .clickLoginButton();
         Assert.assertTrue(oPage.hasLogOutLink());
+
     }
 
     @Test
