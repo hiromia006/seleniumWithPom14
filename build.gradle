@@ -29,6 +29,10 @@ dependencies {
     //POI for Excel handling
     testImplementation 'org.apache.poi:poi:5.5.1'
     testImplementation 'org.apache.poi:poi-ooxml:5.5.1'
+
+    // Source: https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
+    // Updated Allure TestNG version
+    implementation("io.qameta.allure:allure-testng:2.32.0")
 }
 
 test {

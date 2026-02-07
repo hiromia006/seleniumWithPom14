@@ -12,7 +12,7 @@ public class ParaBankUtil {
     public static final String TITTLE = "ParaBank | Welcome | Online Banking";
 
     public static Object[][] getTestData(String sheetName) {
-        String path = System.getProperty("user.dir") + "/src/test/java/com/parabank/parasoft/pom/testdata/ddt.xlsx";
+        String path = System.getProperty("user.dir") + "/src/test/resources/data/ddt.xlsx";
         Workbook book = null;
         Sheet sheet;
         FileInputStream file = null;

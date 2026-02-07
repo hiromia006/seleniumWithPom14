@@ -94,7 +94,7 @@ public class BaseTest {
         try {
             File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             String currentDir = System.getProperty("user.dir") + "/build/screenshots/";
-            FileUtils.copyFile(scrFile, new File(currentDir + fileName + System.currentTimeMillis() + ".png"));
+            FileUtils.copyFile(scrFile, new File(currentDir + fileName + "_"+System.currentTimeMillis() + ".png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
