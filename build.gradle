@@ -23,7 +23,12 @@ dependencies {
     implementation 'commons-io:commons-io:2.15.1'
 
     // https://mvnrepository.com/artifact/com.aventstack/extentreports
+    // Updated ExtentReports version
     testImplementation 'com.aventstack:extentreports:5.1.2'
+
+    //POI for Excel handling
+    testImplementation 'org.apache.poi:poi:5.5.1'
+    testImplementation 'org.apache.poi:poi-ooxml:5.5.1'
 }
 
 test {
